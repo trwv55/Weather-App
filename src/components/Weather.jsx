@@ -1,44 +1,26 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { setItems } from '../redux/weatherSlice';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { axiosWeather } from '../redux/weatherSlice';
+import WeatherDisplay from './WeatherDisplay';
 
 const Weather = () => {
-  const url = '';
-  const [lat, setLat] = useState();
-  const [lon, setLon] = useState();
-  const apiKey = '6e88c836d5efbcb3aae467c7251ee9fb';
+  const { status } = useSelector((state) => state.weather);
+  const { inputValue } = useSelector((state) => state.input);
+  const apiKey = '6e88c836d5efbcb3aae467c7251ee9fb&units=metric';
+  // const apiCity = 'https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}';
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const weatherData = async () => {
-      if (!navigator.geolocation) {
-        alert('Службы геолокации не подерживаются вашим браузером');
-      } else {
-        navigator.geolocation.getCurrentPosition(({ coords }) => {
-          setLat(coords.latitude);
-          setLon(coords.longitude);
-        });
-      }
-      await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`,
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          setItems(result);
-          console.log(result);
-        });
-    };
-    weatherData();
-  }, [lat, lon]);
+    dispatch(
+      axiosWeather({
+        inputValue,
+        apiKey,
+      }),
+    );
+  }, [inputValue]);
 
-  // console.log('items', items);
-
-  return (
-    <div>
-      <h1>weather</h1>
-      <h4></h4>
-    </div>
-  );
+  return <div className='weather-wrapper'>{status === 'succeed' && <WeatherDisplay />}</div>;
 };
 
 export default Weather;

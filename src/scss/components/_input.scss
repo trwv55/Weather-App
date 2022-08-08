@@ -1,0 +1,19 @@
+.input {
+  width: 300px;
+  height: 35px;
+  margin-top: 90px;
+  border: 1px solid #bdbdbd;
+  border-radius: 0.25rem;
+  padding-left: 10px;
+  font-family: inherit;
+  :focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #bdbdbd;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+  }
+  ::placeholder {
+    opacity: 0.8;
+  }
+}

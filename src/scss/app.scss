@@ -1,0 +1,13 @@
+@import './normalize';
+@import './components/input.scss';
+@import './components/weather.scss';
+@import './components/weatherDisplay.scss';
+
+.App {
+  background-repeat: no-repeat;
+  background-color: #05121f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
