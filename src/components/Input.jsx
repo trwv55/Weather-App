@@ -9,6 +9,7 @@ const Input = () => {
   const onChangeInput = (e) => {
     if (e.key === 'Enter') {
       dispatch(setItems(e.target.value));
+      setCity('');
     }
   };
 

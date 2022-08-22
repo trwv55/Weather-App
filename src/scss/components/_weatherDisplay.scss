@@ -1,37 +1,21 @@
-$text-wh: #ffffff;
-
 .main-info {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 17px 17px;
+
   h3 {
-    color: $text-wh;
-    font-size: 2.4rem;
-    margin-top: 40px;
+    font-size: 20px;
+    margin-bottom: 7px;
   }
-  .icon-temp {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 35px;
-    margin-bottom: 10px;
-    img {
-      margin-right: 40px;
-    }
-    h1 {
-      color: $text-wh;
-      font-size: 4rem;
-      margin-top: 4px;
-    }
-  }
+
   h4 {
-    color: $text-wh;
-    position: relative;
-    &:after {
-      content: '';
-      display: block;
-      height: 1px;
-      background: green;
-    }
+    margin-bottom: 20px;
+    margin-top: -5px;
+  }
+
+  p {
+    font-size: 16px;
+    font-style: italic;
   }
 }

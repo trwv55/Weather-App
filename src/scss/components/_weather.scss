@@ -1,10 +1,11 @@
 .weather-wrapper {
-  width: 500px;
-  height: 460px;
-  border: 2px solid #c7c6c6;
-  background-color: rgba(229, 229, 229, 0.2);
-
-  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 30px;
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 15px;
+  background-color: #ffd678;
   margin-top: 30px;
+  &:hover {
+    background-color: #ffecd0;
+  }
 }
