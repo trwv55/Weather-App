@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 const WeatherDisplay = () => {
   const { items } = useSelector((state) => state.weather);
+  console.log(items);
   const { icon } = items.weather[0];
 
   return (
@@ -16,7 +17,7 @@ const WeatherDisplay = () => {
         <p className='wind'>wind: {Math.round(items.wind.gust)}kmh</p>
       </div>
       <div className='main-info-icon'>
-        <img src={`https://openweathermap.org/img/wn/${icon}@2x.png `} alt='icon' />
+        <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt='icon' />
       </div>
     </div>
   );
