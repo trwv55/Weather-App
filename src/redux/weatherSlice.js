@@ -21,23 +21,24 @@ const weatherSlice = createSlice({
   initialState,
   reducers: {
     setItems(state, action) {
-      state.items.push(action.payload);
+      state.items = action.payload;
       state.status = 'succeed';
     },
   },
   extraReducers: {
-    // [axiosWeather.pending]: (state) => {
-    //   state.items = ;
-    //   state.status = 'loading';
-    // },
+    [axiosWeather.pending]: (state) => {
+      state.items = [];
+      state.status = 'loading';
+    },
     [axiosWeather.fulfilled]: (state, action) => {
-      state.items.push(action.payload);
+      state.items = action.payload;
+      // state.items.push((oldArray) => [...oldArray, action.payload]);
       state.status = 'succeed';
     },
-    // [axiosWeather.rejected]: (state) => {
-    //   state.items = [];
-    //   state.status = 'error';
-    // },
+    [axiosWeather.rejected]: (state) => {
+      state.items = [];
+      state.status = 'error';
+    },
   },
 });
 
