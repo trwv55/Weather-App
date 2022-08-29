@@ -5,6 +5,7 @@ import { axiosWeather, setItems } from '../redux/weatherSlice';
 import WeatherDisplay from './WeatherDisplay';
 
 const Weather = () => {
+  const [weatherData, setWeatherData] = useState([]);
   const [lat, setLat] = useState();
   const [lon, setLon] = useState();
   const { status } = useSelector((state) => state.weather);
@@ -15,36 +16,36 @@ const Weather = () => {
     'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}';
   const dispatch = useDispatch();
 
-  function getCoords() {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setLat(position.coords.latitude);
-        setLon(position.coords.longitude);
-      },
-      (err) => {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
-      },
-    );
-  }
+  // function getCoords() {
+  //   navigator.geolocation.getCurrentPosition(
+  //     (position) => {
+  //       setLat(position.coords.latitude);
+  //       setLon(position.coords.longitude);
+  //     },
+  //     (err) => {
+  //       console.warn(`ERROR(${err.code}): ${err.message}`);
+  //     },
+  //   );
+  // }
 
-  useEffect(() => {
-    getCoords();
-  }, []);
+  // useEffect(() => {
+  //   getCoords();
+  // }, []);
 
-  useEffect(() => {
-    async function coordsWeather(lat, lon) {
-      try {
-        const { data } = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`,
-        );
-        dispatch(setItems(data));
-      } catch (error) {
-        alert('Ошибка при загрузки погоды');
-      }
-    }
+  // useEffect(() => {
+  //   async function coordsWeather(lat, lon) {
+  //     try {
+  //       const { data } = await axios.get(
+  //         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`,
+  //       );
+  //       dispatch(setItems(data));
+  //     } catch (error) {
+  //       alert('Ошибка при загрузки погоды');
+  //     }
+  //   }
 
-    coordsWeather(lat, lon);
-  }, [lat, lon]);
+  //   coordsWeather(lat, lon);
+  // }, [lat, lon]);
 
   useEffect(() => {
     dispatch(
