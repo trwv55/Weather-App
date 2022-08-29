@@ -1,11 +1,10 @@
 @import './normalize';
 @import './components/input.scss';
-@import './components/weather.scss';
 @import './components/weatherDisplay.scss';
 
 .App {
   background-repeat: no-repeat;
-  background-color: #ffecd0;
+  background-color: #e8f9fd;
   display: flex;
   flex-direction: column;
   align-items: center;
