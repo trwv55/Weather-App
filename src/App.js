@@ -1,13 +1,11 @@
 import './scss/app.scss';
 import React from 'react';
-import Weather from './components/Weather';
-import Input from './components/Input';
+import WeatherData from './components/WeatherData';
 
 function App() {
   return (
     <div className='App'>
-      <Input />
-      <Weather />
+      <WeatherData />
     </div>
   );
 }

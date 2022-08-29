@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { setItems } from '../redux/inputSlice';
 
-const Input = () => {
-  const dispatch = useDispatch();
+const Input = ({ fetchWeather }) => {
   const [city, setCity] = useState('');
 
   const onChangeInput = (e) => {
     if (e.key === 'Enter') {
-      dispatch(setItems(e.target.value));
+      fetchWeather(city);
       setCity('');
     }
   };
