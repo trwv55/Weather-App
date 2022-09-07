@@ -51,7 +51,7 @@ const WeatherData = () => {
       isMounted.current = false;
     }
     isMounted.current = true;
-  }, [weatherData]);
+  }, []);
 
   // получем погоду по поиску
   async function fetchWeather(city) {
