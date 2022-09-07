@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Input from './Input';
 import axios from 'axios';
 import WeatherDisplay from './WeatherDisplay';
 
 const WeatherData = () => {
   const [weatherData, setWeatherData] = useState([]);
-  // console.log(weatherData);
+  const isMounted = useRef(false);
 
   //при первом рендере получаем гео поз и рендерим погоду
   useEffect(() => {
@@ -35,17 +35,23 @@ const WeatherData = () => {
     } catch (error) {
       console.log('error', error);
     }
-    // doubleArr();
   }
 
-  function doubleArr() {
-    const x = weatherData[0]?.name;
-    const y = weatherData[1]?.name;
-    if (x === y) {
-      const firstArr = [...weatherData.slice(0, 1)];
-      setWeatherData(firstArr);
-    }
+  function doubleArr(array, key) {
+    return array.reduce((arr, item) => {
+      const removed = arr.filter((i) => i[key] !== item[key]);
+      return [...removed, item];
+    }, []);
+    // setWeatherData(doubleCheck);
   }
+
+  useEffect(() => {
+    if (isMounted.current) {
+      weatherData.shift();
+      isMounted.current = false;
+    }
+    isMounted.current = true;
+  }, [weatherData]);
 
   // получем погоду по поиску
   async function fetchWeather(city) {
