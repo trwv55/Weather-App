@@ -5,7 +5,6 @@ import WeatherDisplay from './WeatherDisplay';
 
 const WeatherData = () => {
   const [weatherData, setWeatherData] = useState([]);
-  console.log(weatherData);
 
   //при первом рендере получаем гео поз и рендерим погоду
   useEffect(() => {
@@ -69,6 +68,7 @@ const WeatherData = () => {
 
   function removeBtn(title) {
     const blockRemoveIndx = weatherData.map((weather) => weather.name).indexOf(title);
+    console.log(blockRemoveIndx);
     const newArr = [
       ...weatherData.slice(0, blockRemoveIndx),
       ...weatherData.slice(blockRemoveIndx + 1),

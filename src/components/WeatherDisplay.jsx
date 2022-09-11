@@ -13,7 +13,7 @@ const WeatherDisplay = ({ item, removeBtn }) => {
         <h4>{description}</h4>
         <p className='feels-like'>feels like: {Math.round(item.main.feels_like)}°</p>
         <p className='humidity'>humidity: {item.main.humidity}%</p>
-        <p className='wind'>wind: {Math.round(item.wind.gust)} kmh</p>
+        <p className='wind'>wind: {Math.round(item.wind.gust)} kmh </p>
         <Button className='button' onClick={() => removeBtn(item.name)}>
           Удалить
         </Button>
