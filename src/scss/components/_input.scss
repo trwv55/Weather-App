@@ -1,11 +1,11 @@
 .input {
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   text-align: center;
   margin-top: 90px;
   border: 1px solid #000;
   border-radius: 5px;
-  padding-left: 10px;
-  font-size: 24px;
+  font-size: 30px;
   height: 50px;
   font-family: inherit;
   &:focus {
