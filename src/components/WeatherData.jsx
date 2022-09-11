@@ -37,7 +37,7 @@ const WeatherData = () => {
     }
   }
 
-  //удаляем если было 2 запроса на сервер
+  //удаляем 2й запрос после отправки гео-позиции
   function doubleArr(array) {
     for (let i = 0; i < array.length; i++) {
       for (let j = i + 1; j < array.length; j++) {

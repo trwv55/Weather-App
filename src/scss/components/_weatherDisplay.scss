@@ -10,9 +10,14 @@
   width: 100%;
   background-color: #79dae8;
 
+  &:hover {
+    background-color: #e8f9fd;
+    cursor: pointer;
+  }
+
   h3 {
     font-size: 20px;
-    margin-bottom: 7px;
+    margin-bottom: 3px;
   }
 
   h4 {
@@ -23,5 +28,8 @@
   p {
     font-size: 16px;
     font-style: italic;
+  }
+  .wind {
+    margin-bottom: 15px;
   }
 }
