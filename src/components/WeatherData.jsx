@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Input from './Input';
-import axios from 'axios';
-import WeatherDisplay from './WeatherDisplay';
+import React, { useState, useEffect, useContext } from "react";
+import Input from "./Input";
+import Toggle from "./Toggle";
+import axios from "axios";
+import WeatherDisplay from "./WeatherDisplay";
 
 const WeatherData = () => {
   const [weatherData, setWeatherData] = useState([]);
@@ -21,7 +22,7 @@ const WeatherData = () => {
   }, []);
 
   async function positionWeather(lat, lon) {
-    const apiKey = '6e88c836d5efbcb3aae467c7251ee9fb';
+    const apiKey = "6e88c836d5efbcb3aae467c7251ee9fb";
     let permision = true;
     try {
       const { data } = await axios.get(
@@ -32,7 +33,7 @@ const WeatherData = () => {
         return setWeatherData((oldArray) => [...oldArray, data]);
       }
     } catch (error) {
-      console.log('error', error);
+      console.log("error", error);
     }
   }
 
@@ -40,7 +41,7 @@ const WeatherData = () => {
   function doubleArr(array) {
     for (let i = 0; i < array.length; i++) {
       for (let j = i + 1; j < array.length; j++) {
-        if (array[i]['name'] !== array[j]['name']) return;
+        if (array[i]["name"] !== array[j]["name"]) return;
         array.splice(1, 1);
       }
     }
@@ -49,7 +50,7 @@ const WeatherData = () => {
 
   // получем погоду по поиску
   async function fetchWeather(city) {
-    const apiKey = '6e88c836d5efbcb3aae467c7251ee9fb';
+    const apiKey = "6e88c836d5efbcb3aae467c7251ee9fb";
     let permision = true;
 
     const { data } = await axios.get(
@@ -57,7 +58,7 @@ const WeatherData = () => {
     );
     weatherData.forEach((weather) => {
       if (weather.name === data.name) {
-        console.log('already added');
+        console.log("already added");
         permision = false;
       }
     });
@@ -78,6 +79,7 @@ const WeatherData = () => {
 
   return (
     <>
+      <Toggle />
       <Input fetchWeather={fetchWeather} />
       {weatherData.map((item, i) => (
         <WeatherDisplay key={i} item={item} removeBtn={removeBtn} />

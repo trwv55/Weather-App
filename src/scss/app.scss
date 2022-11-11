@@ -1,12 +1,72 @@
-@import './normalize';
-@import './components/input.scss';
-@import './components/weatherDisplay.scss';
-@import './components/button.scss';
+@import "./normalize";
+@import "./components/input.scss";
+@import "./components/weatherDisplay.scss";
+@import "./components/button.scss";
+@import "./components/toggle";
 
+// :root[data-theme="light"] {
+//   --background-color: #e8f9fd;
+// }
+
+// :root[data-theme="dark"] {
+//   --background-color: #172038;
+// }
+
+:root {
+  --background-color-light: #e8f9fd;
+  --background-color-dark: #172038;
+  --bc-light-display: #79dae8;
+  --bc-light-border: 1px solid #000;
+  --bc-light-textColor: inherit;
+  --bc-dark-display: #354468;
+  --bc-dark-border: 1px solid rgba(0, 0, 0, 0.06);
+  --bc-dark-textColor: #f9fbfb;
+}
+
+//background: #354468;
+//border: 1px solid rgba(0, 0, 0, 0.06);
 .App {
-  background-color: #e8f9fd;
+  // background: var(--background-color);
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // min-height: 100vh;
+}
+
+.layout {
+  background-color: var(--background-color-light);
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100vw;
   min-height: 100vh;
+}
+
+.layout.dark {
+  background-color: var(--background-color-dark);
+}
+
+.main-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 17px 17px;
+  border: var(--bc-light-border);
+  border-radius: 5px;
+  margin: 20px 20px;
+  max-width: 337px;
+  width: 100%;
+  background-color: var(--bc-light-display);
+  color: var(--bc-light-textColor);
+
+  &:hover {
+    background-color: #e8f9fd;
+    cursor: pointer;
+  }
+}
+
+.layout.dark .main-info {
+  background-color: var(--bc-dark-display);
+  border: var(--bc-dark-border);
+  color: var(--bc-dark-textColor);
 }
