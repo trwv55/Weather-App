@@ -4,7 +4,7 @@ import WeatherData from "./components/WeatherData";
 import { ThemeProvider } from "./providers/ThemeProvides";
 import Layout from "./components/Layout";
 
-function App() {
+const App = () => {
   return (
     <div className='App'>
       <ThemeProvider>
@@ -14,6 +14,6 @@ function App() {
       </ThemeProvider>
     </div>
   );
-}
+};
 
 export default App;

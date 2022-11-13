@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Input = ({ fetchWeather }) => {
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState("");
 
   const onChangeInput = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       fetchWeather(city);
-      setCity('');
+      setCity("");
     }
   };
 
