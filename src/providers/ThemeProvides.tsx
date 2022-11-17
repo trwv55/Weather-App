@@ -23,7 +23,6 @@ export const ThemeProvider: React.FC<ChildrenProps> = ({ children }) => {
   }
   
   const [isDark, setIsDark] = useState<boolean>(getTheme);
-  console.log(typeof isDark)
   const value = useMemo(() => ({ isDark, setIsDark }), [isDark]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;

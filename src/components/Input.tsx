@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 
-const Input = ({ fetchWeather }) => {
+type InputProps = {
+  fetchWeather: (a: string) => Promise<void>
+}
+
+const Input: React.FC<InputProps> = ({ fetchWeather }) => {
+  console.log(fetchWeather);
   const [city, setCity] = useState("");
 
-  const onChangeInput = (e) => {
+  const onChangeInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       fetchWeather(city);
       setCity("");
